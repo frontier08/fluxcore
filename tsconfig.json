@@ -43,6 +43,9 @@
       ],
       "@/typesModels/*": [
         "./src/types/models/*"
+      ],
+      "@/validations/*": [
+        "./src/lib/validations/*"
       ]
     }
   },
