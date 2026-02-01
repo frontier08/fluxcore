@@ -13,7 +13,7 @@ export default function NotFound() {
     const { user } = useAuth();
     const router = useRouter();
     const homeRoute = getHomeRouteForRole(user?.role || 'CASHIER');
-    console.log(user);
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>

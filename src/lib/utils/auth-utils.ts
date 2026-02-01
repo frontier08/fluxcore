@@ -6,5 +6,5 @@ export const getHomeRouteForRole = (role: string): string => {
         'CASHIER': '/ventas/pos',
         'STOCK_CLERK': '/inventario'
     };
-    return routes[role] || '/dashboard';
+    return routes[role];
 };
