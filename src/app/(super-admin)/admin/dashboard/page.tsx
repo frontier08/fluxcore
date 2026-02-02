@@ -1,11 +1,12 @@
 "use client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "lambda-ui-components";
+import styles from "../superadmin.module.scss";
 
 export default function AdminPage() {
     const { logout, isLoading, user } = useAuth();
     return (
-        <div>
+        <div className={styles.container}>
             <h1>Admin</h1>
             <div>
                 <p>Usuario: {user?.username}</p>

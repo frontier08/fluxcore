@@ -3,6 +3,7 @@ export const getHomeRouteForRole = (role: string): string => {
         'SUPER_ADMIN': '/admin/dashboard',
         'ADMIN': '/dashboard',
         'MANAGER': '/dashboard',
+        'PURCHASING_AGENT': '/compras',
         'CASHIER': '/ventas/pos',
         'STOCK_CLERK': '/inventario'
     };
