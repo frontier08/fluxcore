@@ -14,3 +14,7 @@ export const formatPercentage = (value: number) => {
         maximumFractionDigits: 1,
     }).format(value);
 };
+
+export const toPorcentage = (value: number) => {
+    return `${(value * 100).toFixed(0)}%`
+}
