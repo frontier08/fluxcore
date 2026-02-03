@@ -1,8 +1,11 @@
 .main {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100svh;
+    width: 100svw;
     padding-top: var(--spacing-3xl);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .content {
