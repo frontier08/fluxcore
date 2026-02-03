@@ -2,7 +2,8 @@
 import { Divider } from "lambda-ui-components";
 import styles from "./Adminpage.module.scss";
 import { KipCard } from "@/app/components/ui/KipCard/KipCard";
-import { AreaChart } from "@/pp/components/ui/AreaChart/AreaChart";
+import { AreaChart } from "@/app/components/ui/AreaChart/AreaChart";
+import { DonutChart } from "@/app/components/ui/DonutChart/DonutChart";
 
 export default function AdminPage() {
     return (
@@ -20,14 +21,34 @@ export default function AdminPage() {
                 <KipCard type="apiCalls" value={1365} />
             </div>
             <Divider spacing={20} />
-            <div className={styles.container_charts}>
-                <AreaChart
-                    area={area}
-                    type="currency"
-                    title="Tendencia de crecimiento MRR"
-                    description="Rendimiento en los últimos 12 meses"
-                    curveType="linear"
-                />
+            <div className={styles.container_wrapper}>
+                <div className={styles.container_charts}>
+                    <div className={styles.container_charts_area}>
+                        <AreaChart
+                            area={area}
+                            type="currency"
+                            title="Tendencia de crecimiento MRR"
+                            description="Rendimiento en los últimos 12 meses"
+                            curveType="linear"
+                        />
+                    </div>
+                    <div className={styles.container_charts_donut}>
+                        <DonutChart
+                            cx="50%"
+                            cy="47%"
+                            data={donutData}
+                            dataKey="value"
+                            fill="var(--surface-d)"
+                            innerRadius={50}
+                            outerRadius={70}
+                            title="Distribución de Suscripciones"
+                            description="Desglose de tenants activos por nivel de servicio"
+                        />
+                    </div>
+                </div>
+                <div className={styles.container_tables}>
+
+                </div>
             </div>
         </div>
     );
@@ -50,3 +71,10 @@ const area: AreaChart = {
     ],
     groups: ["2025", "2026"]
 };
+
+const donutData = [
+    { name: 'Free', value: 40 },
+    { name: 'Basic', value: 30 },
+    { name: 'Pro', value: 5 },
+    { name: 'Enterprise', value: 15 },
+];

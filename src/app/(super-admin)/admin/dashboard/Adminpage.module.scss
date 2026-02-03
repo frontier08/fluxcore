@@ -23,10 +23,39 @@
         gap: var(--spacing-sm);
     }
 
+    &_wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+        height: calc(100svh - 345px);
+    }
+
     &_charts {
         display: flex;
         flex-direction: row;
         gap: var(--spacing-sm);
-        height: calc(100svh - 345px);
+        width: 100%;
+        height: 60%;
+
+        &_area {
+            display: flex;
+            flex-direction: row;
+            gap: var(--spacing-sm);
+            width: 60%;
+        }
+
+        &_donut {
+            width: 40%;
+        }
+    }
+
+    &_tables {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-sm);
+        width: 100%;
+        height: 40%;
+        background-color: #1d176e30;
     }
 }
