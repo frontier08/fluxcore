@@ -1,5 +1,5 @@
 "use client";
-import { Dropdown } from 'lambda-ui-components';
+import { Dropdown, Tooltip } from 'lambda-ui-components';
 import styles from './DashboardCard.module.scss'
 import { toSvg, toPng, toJpeg } from "html-to-image"
 import { DownloadIcon, SaveIcon } from 'lucide-react';
@@ -8,10 +8,11 @@ import { useRef } from 'react';
 interface DashboardCardProps {
     title: string;
     description: string;
+    headerActions?: React.ReactNode;
     children: React.ReactNode;
 }
 
-export const DashboardCard = ({ title, description, children }: DashboardCardProps) => {
+export const DashboardCard = ({ title, description, headerActions, children }: DashboardCardProps) => {
     const refChart = useRef<HTMLDivElement>(null);
 
     const handleDownload = (format: "png" | "jpeg" | "svg") => {
@@ -63,11 +64,21 @@ export const DashboardCard = ({ title, description, children }: DashboardCardPro
                     <h2>{title}</h2>
                     <span>{description}</span>
                 </div>
-                <Dropdown icon={<DownloadIcon strokeWidth={1.8} absoluteStrokeWidth />} size="small">
-                    <Dropdown.Item icon={<SaveIcon />} text="Save as PNG" onSelectOption={() => handleDownload("png")} />
-                    <Dropdown.Item icon={<SaveIcon />} text="Save as JPEG" onSelectOption={() => handleDownload("jpeg")} />
-                    <Dropdown.Item icon={<SaveIcon />} text="Save as SVG" onSelectOption={() => handleDownload("svg")} />
-                </Dropdown>
+                <div className={styles.header_actions}>
+                    {headerActions}
+                    <Tooltip
+                        content="Descargar gráfico"
+                        offset={10}
+                        color="info"
+                        position="top-right"
+                    >
+                        <Dropdown icon={<DownloadIcon strokeWidth={1.8} absoluteStrokeWidth />} size="small">
+                            <Dropdown.Item icon={<SaveIcon />} text="Save as PNG" onSelectOption={() => handleDownload("png")} />
+                            <Dropdown.Item icon={<SaveIcon />} text="Save as JPEG" onSelectOption={() => handleDownload("jpeg")} />
+                            <Dropdown.Item icon={<SaveIcon />} text="Save as SVG" onSelectOption={() => handleDownload("svg")} />
+                        </Dropdown>
+                    </Tooltip>
+                </div>
             </header>
             <div className={`${styles.content} scrollBar`}>
                 {children}

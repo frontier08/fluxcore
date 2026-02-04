@@ -37,6 +37,14 @@
         font-weight: var(--font-weight-regular);
         color: var(--foreground-secondary-color);
     }
+
+    .header_actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
 }
 
 .content {
