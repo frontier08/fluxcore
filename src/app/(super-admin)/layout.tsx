@@ -14,7 +14,6 @@ export default function SuperAdminLayout({ children }: { children: React.ReactNo
             <div className={styles.content}>
                 <Sidebar
                     menuData={menuData}
-                    currentPath={"/admin/dashboard"}
                     title="Panel de administración"
                 />
                 <section className={styles["content_section"]}>

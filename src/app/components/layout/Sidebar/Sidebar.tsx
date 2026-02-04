@@ -6,14 +6,15 @@ import { CloseSession } from './CloseSession';
 import { UserStar } from 'lucide-react';
 import { Icon } from '../../Icon';
 import { useMainMenuStore } from '@/pp/store/mainmenu.store';
+import { usePathname } from 'next/navigation';
 
 interface SidebarProps {
     menuData: NavigationMenuData[];
-    currentPath: string;
     title: string;
 }
 
-export const Sidebar = ({ menuData, currentPath, title }: SidebarProps) => {
+export const Sidebar = ({ menuData, title }: SidebarProps) => {
+    const currentPath = usePathname();
     const { open } = useMainMenuStore();
     return (
         <div className={`${styles.sidebar} ${open ? styles.sidebar_open : ""}`}>
