@@ -62,17 +62,19 @@
 
         @media (width < 1400px) {
             grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
             height: 60%;
+
+            &>div:nth-child(3) {
+                grid-column: 1 / span 2;
+            }
         }
 
         @media (width < 880px) {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             height: 100%;
         }
 
-        &_table {
-            width: 50%;
-            overflow-y: auto;
-        }
     }
 }

@@ -26,7 +26,7 @@ export const SystemStatus = ({ uptime, latencyAverage, latencyMax, latencyMin }:
         <DashboardCard title="Estado del sistema" description="Salud de la infraestructura">
             <div className={styles.container}>
                 <div className={styles.uptime}>
-                    <h2>Estado del servidor</h2>
+                    <h3>Estado del servidor</h3>
                     <Progress
                         value={uptime}
                         variant="circle"
@@ -44,12 +44,12 @@ export const SystemStatus = ({ uptime, latencyAverage, latencyMax, latencyMin }:
                     barSize={15}
                     showTooltip
                     colors={["var(--lambda-color-yellow-600)", "var(--danger-base-color)"]}
-                    width={400}
+                    width={"100%"}
                 />
             </div>
             <Divider spacing={1} />
             <div className={styles.latency}>
-                <h2>Latencia</h2>
+                <h3>Latencia</h3>
                 <div className={styles.latency_container}>
                     <div className={styles.latency_item}>
                         <span>Máxima: </span>

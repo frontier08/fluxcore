@@ -9,7 +9,7 @@ export default function SuperAdminLayout({ children }: { children: React.ReactNo
     return (
         <main className={styles.main}>
             <HeaderSection>
-                <p>Super Admin</p>
+                <p>{""}</p>
             </HeaderSection>
             <div className={styles.content}>
                 <Sidebar

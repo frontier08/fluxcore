@@ -16,5 +16,9 @@
         width: 100%;
         padding: var(--spacing-sm);
         padding-left: calc(var(--spacing-4xl) + var(--spacing-md));
+
+        @media (max-width: 768px) {
+            padding-left: var(--spacing-sm);
+        }
     }
 }

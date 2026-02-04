@@ -5,4 +5,11 @@
     gap: 1em;
     text-decoration: none;
 
+    @media (width < 768px) {
+        & h1 {
+            display: none;
+        }
+
+
+    }
 }
