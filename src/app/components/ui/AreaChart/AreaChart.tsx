@@ -1,42 +1,33 @@
 "use client"
 import styles from './AreaChart.module.scss'
-import { AreaChart as RechartsAreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart as RechartsAreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { ToolTipChart } from './ToolTipChart';
-import { formatCurrency, formatPercentage } from '../../../../lib/utils/common-utils';
-import { CurveType } from 'recharts/types/shape/Curve';
+import { formatCurrency, formatPercentage } from '@/utils/common-utils';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
+import { COLORS } from '@/utils/constants';
+import { ChartGroup, ChartNumberType } from '@/typesComponents/chart';
+import { CurveType } from 'recharts/types/shape/Curve';
 
 
-export type AreaChartType = "porcentage" | "number" | "currency" | "decimal";
-
-export interface AreaChartData {
-    name: string;
-    [key: string]: number | string;
-}
-
-export interface AreaChart {
-    data: AreaChartData[];
-    groups: string[];
-}
-
-interface AreaChartProps {
-    area: AreaChart;
-    type: AreaChartType;
+export interface AreaChartProps {
+    data: ChartGroup;
+    type: ChartNumberType;
     title: string;
     description: string;
     curveType?: CurveType
 }
 
-export const AreaChart = ({ area, type, title, description, curveType }: AreaChartProps) => {
+
+export const AreaChart = ({ data, type, title, description, curveType }: AreaChartProps) => {
 
 
     return (
         <DashboardCard title={title} description={description}  >
-            <ResponsiveContainer >
+            <ResponsiveContainer debounce={10}>
                 <RechartsAreaChart
                     className={styles.areachart}
                     responsive
-                    data={area.data}
+                    data={data.data}
                     margin={{
                         top: 20,
                         right: 0,
@@ -46,23 +37,24 @@ export const AreaChart = ({ area, type, title, description, curveType }: AreaCha
                 >
                     <CartesianGrid
                         strokeDasharray="3 3"
-                        stroke='var(--lambda-color-gray-600)'
+                        stroke='var(--border-color)'
                     />
                     <XAxis
                         dataKey="name"
-                        stroke='var(--lambda-color-gray-600)'
-                        tick={{ fill: 'var(--foreground-title-color)', dy: 5 }}
+                        stroke='var(--surface-e)'
+                        tick={{ fill: 'var(--foreground-secondary-color)', dy: 5 }}
                     />
                     <YAxis
                         width="auto"
                         tickFormatter={(value) => convertValue(value, type)}
-                        stroke='var(--lambda-color-gray-600)'
-                        tick={{ fill: 'var(--foreground-title-color)', dx: -5 }}
+                        stroke='var(--surface-e)'
+                        tick={{ fill: 'var(--foreground-secondary-color)', dx: -5 }}
                     />
                     <Tooltip content={(props) => (
                         <ToolTipChart {...props} type={type} active animationDuration={250} />
                     )} />
-                    {area.groups.map((group, index) => (
+                    <Legend />
+                    {data.groups.map((group, index) => (
                         <Area
                             key={index}
                             animationEasing='ease-in-out'
@@ -70,9 +62,9 @@ export const AreaChart = ({ area, type, title, description, curveType }: AreaCha
                             isAnimationActive={false}
                             type={curveType}
                             dataKey={group}
-                            stroke={colors[index]}
+                            stroke={COLORS[index]}
                             strokeWidth={2}
-                            fill={colors[index]}
+                            fill={COLORS[index]}
                             fillOpacity={0.3} />
                     ))}
                 </RechartsAreaChart>
@@ -81,17 +73,6 @@ export const AreaChart = ({ area, type, title, description, curveType }: AreaCha
     );
 }
 
-export const colors = [
-    "var(--lambda-color-cyan-500)",
-    "var(--lambda-color-green-500)",
-    "var(--lambda-color-yellow-500)",
-    "var(--lambda-color-violet-500)",
-    "var(--lambda-color-red-500)",
-    "var(--lambda-color-blue-500)",
-    "var(--lambda-color-pink-500)",
-    "var(--lambda-color-orange-500)",
-    "var(--lambda-color-brown-500)",
-];
 
 
 const convertValue = (value: number, type: "porcentage" | "number" | "currency" | "decimal") => {

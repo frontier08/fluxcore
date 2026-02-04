@@ -1,13 +1,14 @@
 "use client";
 import { Pie, PieChart, PieSectorDataItem, ResponsiveContainer, Sector } from 'recharts';
 import styles from './DonutChart.module.scss'
-import { AreaChartData, colors } from '../AreaChart/AreaChart';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
+import { COLORS } from '@/utils/constants';
+import { ChartData } from '@/typesComponents/chart';
 
 interface DonutChartProps {
     cx: string,
     cy: string,
-    data: AreaChartData[],
+    data: ChartData[],
     dataKey: string,
     fill: string,
     innerRadius: number,
@@ -55,7 +56,7 @@ export const DonutChart = (props: DonutChartProps) => {
                     outerRadius={outerRadius}
                     startAngle={startAngle}
                     endAngle={endAngle}
-                    fill={colors[props.index % colors.length]}
+                    fill={COLORS[props.index % COLORS.length]}
                 />
                 <Sector
                     cx={cx}
@@ -64,17 +65,17 @@ export const DonutChart = (props: DonutChartProps) => {
                     endAngle={endAngle}
                     innerRadius={outerRadius + 6}
                     outerRadius={outerRadius + 10}
-                    fill={colors[props.index % colors.length]}
+                    fill={COLORS[props.index % COLORS.length]}
                 />
                 <path
                     d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
-                    stroke={colors[props.index % colors.length]}
+                    stroke={COLORS[props.index % COLORS.length]}
                     fill="none" />
                 <circle
                     cx={ex}
                     cy={ey}
                     r={2}
-                    fill={colors[props.index % colors.length]}
+                    fill={COLORS[props.index % COLORS.length]}
                     stroke="none" />
                 <text
                     x={ex + (cos >= 0 ? 1 : -1) * 12}
@@ -111,7 +112,7 @@ export const DonutChart = (props: DonutChartProps) => {
                     d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
                     stroke={fill}
                     fill="none" />
-                <Sector {...props} fill={`${colors[props.index % colors.length]}`} style={{ opacity: 0.5, stroke: colors[props.index % colors.length] }} />
+                <Sector {...props} fill={`${COLORS[props.index % COLORS.length]}`} style={{ opacity: 0.5, stroke: COLORS[props.index % COLORS.length] }} />
             </g>
         );
     };
@@ -122,7 +123,7 @@ export const DonutChart = (props: DonutChartProps) => {
                 <div className={styles.legend}>
                     {props.data.map((item, index) => (
                         <div key={index} className={styles.legend_item}>
-                            <div className={styles.legend_color} style={{ backgroundColor: colors[index % colors.length] }} />
+                            <div className={styles.legend_color} style={{ backgroundColor: COLORS[index % COLORS.length] }} />
                             <span className={styles.legend_text}>{item.name || ""}</span>
                         </div>
                     ))}
