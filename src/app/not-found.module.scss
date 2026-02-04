@@ -17,7 +17,7 @@
         width: 100%;
         max-width: 35rem;
         border-radius: var(--radius-box);
-        border: 1px solid var(--surface-b);
+        border: var(--border-width) solid var(--border-color);
         background-color: var(--surface-a);
         text-align: center;
 

@@ -7,7 +7,7 @@
     height: calc(100vh - var(--spacing-3xl));
     padding: var(--spacing-2xs) var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
     background-color: var(--surface-a);
-    border-right: 1px solid var(--border-color);
+    border-right: var(--border-width) solid var(--border-color);
     transition: width 0.2s ease;
     overflow: hidden;
     z-index: 100;

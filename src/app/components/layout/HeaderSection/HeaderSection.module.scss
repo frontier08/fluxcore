@@ -10,7 +10,7 @@
     height: var(--spacing-3xl);
     padding: var(--spacing-none) var(--spacing-sm);
     background-color: var(--surface-a);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: var(--border-width) solid var(--border-color);
     width: 100%;
 
     .user_container {

@@ -6,7 +6,7 @@
     width: 100%;
     height: var(--size-6xl);
     padding: var(--spacing-none) var(--spacing-md) var(--spacing-none) var(--spacing-xs);
-    border-bottom: 1px solid var(--surface-c);
+    border-bottom: var(--border-width) solid var(--surface-c);
 
 
     &_container {
