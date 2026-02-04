@@ -8,16 +8,12 @@ import { RegisteredTenants, TableData } from "./components/RegisteredTenants";
 import { UsageTenants } from "./components/UsageTenants";
 import { SystemStatus } from "./components/SystemStatus/SystemStatus";
 import { ChartGroup } from "@/typesComponents/chart";
+import { ContainerSection } from "@/pp/components/layout/ContainerSection/ContainerSection";
 
 export default function AdminPage() {
     return (
-        <div className={`${styles.container} scrollBar`}>
-            <header className={styles.container_header}>
-                <h1>Panel de control global</h1>
-                <span>Vista general del rendimiento del ecosistema FluxCore </span>
-            </header>
-            <Divider spacing={10} />
-            <div className={styles.container_kips}>
+        <ContainerSection title="Panel de control global" description="Vista general del rendimiento del ecosistema FluxCore">
+            <div className={styles.kips}>
                 <KipCard type="revenue" value={4365.56} percentage={0.35} trend="up" />
                 <KipCard type="tenants" value={37} percentage={0.12} trend="down" />
                 <KipCard type="subscriptions" value={43} percentage={0.05} trend="up" />
@@ -25,9 +21,9 @@ export default function AdminPage() {
                 <KipCard type="apiCalls" value={1365} />
             </div>
             <Divider spacing={10} />
-            <div className={`${styles.container_wrapper} `}>
-                <div className={styles.container_charts}>
-                    <div className={styles.container_charts_area}>
+            <div className={`${styles.wrapper} `}>
+                <div className={styles.charts}>
+                    <div className={styles.charts_area}>
                         <AreaChart
                             data={area}
                             type="currency"
@@ -36,7 +32,7 @@ export default function AdminPage() {
                             curveType="linear"
                         />
                     </div>
-                    <div className={styles.container_charts_donut}>
+                    <div className={styles.charts_donut}>
                         <DonutChart
                             cx="50%"
                             cy="47%"
@@ -50,13 +46,13 @@ export default function AdminPage() {
                         />
                     </div>
                 </div>
-                <div className={styles.container_tables}>
+                <div className={styles.tables}>
                     <RegisteredTenants data={tableData} />
                     <UsageTenants data={usageData} />
                     <SystemStatus {...systemStatus} />
                 </div>
             </div>
-        </div>
+        </ContainerSection>
     );
 }
 
