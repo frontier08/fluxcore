@@ -6,10 +6,9 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
         <LambdaConfigProvider lang="en" >
             <ThemeProvider
                 defaultTheme="slate"
-                lightTheme="mint"
+                lightTheme="ocean"
                 darkTheme="slate"
                 disableTransitionOnChange
-                enableColorScheme={true}
             >
                 <SessionProvider>
                     <NotificationProvider duration={5000} maxNotifications={5} placement="top-right">
