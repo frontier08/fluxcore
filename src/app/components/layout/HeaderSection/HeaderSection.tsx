@@ -1,12 +1,15 @@
 
 "use client";
-import { Avatar, ButtonTheme, Divider, SwitchTheme } from 'lambda-ui-components';
+import { Avatar, Button, ButtonTheme, Divider, SwitchTheme } from 'lambda-ui-components';
 import { LogoFluxCoreLarge } from '../../logos/LogoFluxCoreLarge';
 import styles from './HeaderSection.module.scss';
 import { useAuth } from '@/hooks/useAuth';
+import { Menu } from 'lucide-react';
+import { useMainMenuStore } from '@/pp/store/mainmenu.store';
 
 export function HeaderSection({ children }: { children: React.ReactNode }) {
     const { user } = useAuth();
+    const { open, setOpen } = useMainMenuStore();
 
     const getRoleLabel = (role: string) => {
         switch (role) {
@@ -29,9 +32,14 @@ export function HeaderSection({ children }: { children: React.ReactNode }) {
 
     return (
         <header className={styles.header_section}>
-            <LogoFluxCoreLarge width={30} height={30} />
+            <div className={styles.logo_container}>
+                <div>
+                    <Button icon={<Menu />} variant='text' size='small' onClick={() => setOpen(!open)} />
+                </div>
+                <LogoFluxCoreLarge width={30} height={30} />
+            </div>
             <Divider orientation="vertical" />
-            <div>
+            <div className={styles.user_container}>
                 {children}
                 <div>
                     <div className={styles.theme}>

@@ -1,9 +1,11 @@
+"use client";
 import { Divider, NavigationMenuData } from 'lambda-ui-components';
 import styles from './Sidebar.module.scss'
 import Link from 'next/link';
 import { CloseSession } from './CloseSession';
 import { UserStar } from 'lucide-react';
 import { Icon } from '../../Icon';
+import { useMainMenuStore } from '@/pp/store/mainmenu.store';
 
 interface SidebarProps {
     menuData: NavigationMenuData[];
@@ -12,8 +14,9 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ menuData, currentPath, title }: SidebarProps) => {
+    const { open } = useMainMenuStore();
     return (
-        <div className={styles.sidebar}>
+        <div className={`${styles.sidebar} ${open ? styles.sidebar_open : ""}`}>
             <div>
                 <div>
                     <Icon icon={UserStar} size={25} />
