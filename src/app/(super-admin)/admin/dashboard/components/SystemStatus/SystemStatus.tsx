@@ -33,7 +33,7 @@ export const SystemStatus = ({ uptime, latencyAverage, latencyMax, latencyMin }:
                     color="info"
                 >
                     <Link
-                        href="/admin/tenants"
+                        href="/admin/system-logs"
                         icon={<ExternalLink absoluteStrokeWidth />}
                         size="small"
                         color="info"
