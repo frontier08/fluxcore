@@ -46,6 +46,12 @@
       ],
       "@/validations/*": [
         "./src/lib/validations/*"
+      ],
+      "@/utils/*": [
+        "./src/lib/utils/*"
+      ],
+      "@/typesComponents/*": [
+        "./src/types/components/*"
       ]
     }
   },
