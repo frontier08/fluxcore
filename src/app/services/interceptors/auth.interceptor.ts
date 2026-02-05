@@ -3,6 +3,7 @@ import { useAuthStore } from "@/app/store/auth.store";
 import { apiFluxCore } from "../api/axios-instance";
 import { authService } from "../api/auth.service";
 import { AxiosError, InternalAxiosRequestConfig } from "axios";
+import { ApiResponse } from "@/typesAPI/common.types";
 
 apiFluxCore.interceptors.request.use(
     (config) => {
@@ -37,8 +38,6 @@ const processQueue = (error: AxiosError | null, token: string | null = null) => 
 
 apiFluxCore.interceptors.response.use(
     (response) => {
-        // ✅ NUEVO: Si la respuesta incluye un nuevo accessToken, guardarlo
-        // Esto es útil cuando /auth/me devuelve un token refresheado
         if (response.data?.accessToken) {
             useAuthStore.getState().setAccessToken(response.data.accessToken);
         }
@@ -49,7 +48,7 @@ apiFluxCore.interceptors.response.use(
         const originalRequest = error.config as InternalAxiosRequestConfig & {
             _retry?: boolean;
         };
-
+        console.log("Entro al interceptor", error);
         if (error.response?.status === 401 && !originalRequest._retry) {
             if (isRefreshing) {
                 return new Promise((resolve, reject) => {
@@ -99,6 +98,20 @@ apiFluxCore.interceptors.response.use(
 
                 return Promise.reject(refreshError);
             }
+        }
+
+        if (error.code === 'ECONNREFUSED' || error.code === 'ERR_NETWORK') {
+            console.log("Entro a ECONNREFUSED");
+            const errorResponse: ApiResponse<any> = {
+                success: false,
+                code: "DOMAIN_ERROR",
+                message: 'Error al conectar con el servidor',
+                data: null,
+                timestamp: new Date(),
+                traceId: ""
+
+            };
+            return Promise.reject(errorResponse);
         }
 
         return Promise.reject(error);

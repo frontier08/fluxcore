@@ -47,3 +47,32 @@ export const bytesToSize = (bytes: number) => {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return `${(bytes / Math.pow(k, i)).toFixed(2)} ${sizes[i]}`;
 }
+
+/**
+ * Formatea una fecha en formato dd/MM/yyyy
+ * @param date fecha
+ * @returns fecha formateada
+ */
+export const formatDateTimeLong = (date: string) => {
+    return new Intl.DateTimeFormat('es-MX', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    }).format(new Date(date));
+}
+
+/**
+ * Formatea una fecha en formato dd/MM/yyyy
+ * @param date fecha
+ * @returns fecha formateada
+ */
+export const formatDateTimeShort = (date: string) => {
+    return new Intl.DateTimeFormat('es-MX', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    }).format(new Date(date));
+}

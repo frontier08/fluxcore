@@ -178,6 +178,10 @@ export const ErrorMessages: Record<string, string> = {
     // Global / Common
     CONFLICT: "Esta acción no se puede realizar porque los datos han cambiado o ya existen.",
     DOMAIN_ERROR: "Ocurrió un error al procesar la solicitud. Por favor, intenta de nuevo.",
+    SERVER_ERROR: "Ocurrió un error inesperado en el servidor. Por favor, intenta más tarde.",
+    TOO_MANY_REQUESTS: "Has realizado demasiadas solicitudes. Por favor, intenta de nuevo más tarde.",
+    NETWORK_ERROR: "No pudimos conectar con el servidor. Revisa tu conexión a internet.",
+
 
     // Not Found
     BRAND_NOT_FOUND: "La marca solicitada no existe",
@@ -233,4 +237,7 @@ export const ErrorMessages: Record<string, string> = {
     IMAGE_SERVICE_UNAVAILABLE: "El servicio de carga de imágenes no está disponible",
     IMAGE_NOT_UPLOADED: "No se pudo cargar la imagen",
     IMAGE_NOT_DELETED: "No se pudo eliminar la imagen",
+
+    // Rate Limit
+    RATE_LIMIT: "Has realizado demasiadas solicitudes. Por favor, intenta de nuevo más tarde.",
 };
