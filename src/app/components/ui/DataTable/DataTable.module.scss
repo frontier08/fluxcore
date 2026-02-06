@@ -1,0 +1,24 @@
+.datatable {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .datatable_header {
+        display: flex;
+        gap: var(--spacing-sm);
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .datatable_actions {
+        display: flex;
+        gap: var(--spacing-sm);
+        justify-content: center;
+    }
+
+    .datatable_filters {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}
