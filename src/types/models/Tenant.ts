@@ -1,3 +1,4 @@
+import { PlanStatusType } from "@/typesAPI/plan.types";
 
 
 export interface Tenant {
@@ -5,6 +6,7 @@ export interface Tenant {
     name: string;
     subscription: string;
     isActive: boolean;
+    status: PlanStatusType;
     validUntil: string;
     createdAt: string;
 }

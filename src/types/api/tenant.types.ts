@@ -1,4 +1,4 @@
-import { SubscriptionType } from "./plan.types";
+import { PlanStatusType, SubscriptionType } from "./plan.types";
 
 export interface RegisterTenantRequest {
     name: string;
@@ -15,6 +15,6 @@ export interface GetTenantsParams {
     sort?: string;
     order?: string;
     search?: string;
-    isActive?: boolean;
-    subscription?: string;
+    status?: PlanStatusType;
+    subscription?: SubscriptionType;
 }
