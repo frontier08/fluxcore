@@ -83,16 +83,12 @@ export function middleware(request: NextRequest) {
     const isLandingPage = pathname === '/';
     const isPublicRoute = isAuthRoute || isLandingPage;
 
-    console.log(`--- Middleware Path: ${pathname} ---`);
-    console.log(`Sesión: ${!!refreshToken}, Ruta Pública: ${isPublicRoute}`);
-
     // ============================================
     // CASO A: SI TIENE SESIÓN ACTIVA
     // ============================================
     if (refreshToken) {
         // A.1. Si intenta entrar a Login/Register -> Redirigir a su Home
         if (isAuthRoute) {
-            console.log("-> Redirigiendo a Home por ser ruta de Auth");
             let homeRoute = '/dashboard';
             if (accessToken) {
                 const payload = decodeToken(accessToken);
@@ -107,10 +103,8 @@ export function middleware(request: NextRequest) {
             if (!payload) return NextResponse.next(); // Dejar que el cliente refresque el token
 
             const role = getUserRole(payload);
-            console.log(`-> Rol Detectado: ${role}`);
             // 👑 BYPASS SUPER_ADMIN: Si es Super Admin, puede entrar a TODO
             if (role === 'SUPER_ADMIN') {
-                console.log("-> 👑 SUPER_ADMIN detectado: Acceso TOTAL concedido");
                 return NextResponse.next();
             }
 
@@ -126,7 +120,6 @@ export function middleware(request: NextRequest) {
                 }
             }
         }
-        console.log("-> Paso permitido (Session Active)");
         // Si es la Landing ('/') o una ruta no configurada, permitir paso
         return NextResponse.next();
     }
@@ -135,11 +128,9 @@ export function middleware(request: NextRequest) {
     // CASO B: SI NO TIENE SESIÓN
     // ============================================
     if (!isPublicRoute) {
-        // Intenta entrar a algo privado sin sesión -> Login
-        console.log("-> Redirigiendo a Login: No hay sesión y no es pública");
+        // Intenta entrar a algo privado sin sesión -> Login 
         return NextResponse.redirect(new URL('/login', request.url));
     }
-    console.log("-> Paso permitido (Public)");
     // Es landing o login sin sesión -> Adelante
     return NextResponse.next();
 }

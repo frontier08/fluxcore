@@ -39,7 +39,6 @@ export const apiFluxCoreServerGet = async <T>(url: string, config?: AxiosRequest
             let errorCode = "UNKNOWN_ERROR";
             let message = "Error inesperado.";
 
-            console.log(error);
             // 1. DETECCIÓN DE SERVIDOR CAÍDO (Node.js) 🔌
             // ECONNREFUSED significa que nadie escucha en ese puerto (Backend apagado)
             if (error.code === 'ECONNREFUSED' || error.code === 'ETIMEDOUT') {

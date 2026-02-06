@@ -48,7 +48,7 @@ apiFluxCore.interceptors.response.use(
         const originalRequest = error.config as InternalAxiosRequestConfig & {
             _retry?: boolean;
         };
-        console.log("Entro al interceptor", error);
+
         if (error.response?.status === 401 && !originalRequest._retry) {
             if (isRefreshing) {
                 return new Promise((resolve, reject) => {
@@ -101,7 +101,6 @@ apiFluxCore.interceptors.response.use(
         }
 
         if (error.code === 'ECONNREFUSED' || error.code === 'ERR_NETWORK') {
-            console.log("Entro a ECONNREFUSED");
             const errorResponse: ApiResponse<any> = {
                 success: false,
                 code: "DOMAIN_ERROR",
