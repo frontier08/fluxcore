@@ -27,11 +27,35 @@ export interface DataTableColumn<T> {
 
 
 interface DataTableProps<T> {
+    /**
+     * Datos de la tabla
+     * @example data={[{ id: 1, name: "Nombre", email: "email@example.com" }]}
+     */
     data: T[];
+    /**
+     * Columnas de la tabla
+     * @example columns={[{ sortKey: "name", nameColumn: "Nombre", type: "string", width: "100px", align: "left", isSortable: true, render: (tenant) => tenant.name }]}
+     */
     columns: DataTableColumn<T>[];
+    /**
+     *  Paginación de la tabla
+     * @example pagination={pagination}
+     */
     pagination?: Pagination;
+    /**
+     * Indica si la operación fue exitosa
+     * 
+     */
     success?: boolean;
+    /**
+     * Acciones disponibles para la tabla
+     * @example ["view", "edit", "delete"]
+     */
     actions?: ActionsType;
+    /**
+     * Filtros disponibles para la tabla
+     * @example  filters={[{ id: "name", key: "name", value: "name", label: "Nombre", type: "string", nameGroup: "Nombre" }]}
+     */
     filters?: {
         id?: string,
         key: string,
@@ -358,7 +382,13 @@ export const DataTable = <T extends { id: string | number }>({
                 <Table
                     data={data}
                     size='tiny'
-                    onSortColumn={(sortKey, direction) => console.log(sortKey, direction)}
+                    onSortColumn={(sortKey, direction) => {
+                        const params = new URLSearchParams(searchParams);
+                        params.set('sortBy', sortKey);
+                        params.set('sortDirection', direction);
+                        params.set('page', '1');
+                        router.replace(`${pathname}?${params.toString()}`);
+                    }}
                     highlightOnHover
                     pagination={pagination && pagination.totalPages > 1 ? {
                         page: pagination?.page,
