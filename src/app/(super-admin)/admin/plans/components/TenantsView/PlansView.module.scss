@@ -1,0 +1,28 @@
+.subscription {
+    text-align: center;
+    color: var(--foreground-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-box);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+
+    &_basic {
+        background-color: var(--lambda-color-gray-800);
+    }
+
+    &_premium {
+        background-color: var(--lambda-color-sky-800);
+    }
+
+    &_enterprise {
+        background-color: var(--lambda-color-lime-800);
+    }
+
+    &_trial {
+        background-color: var(--lambda-color-orange-800);
+    }
+
+    &_internal {
+        background-color: var(--lambda-color-rose-800);
+    }
+}
