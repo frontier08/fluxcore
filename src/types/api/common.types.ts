@@ -15,27 +15,6 @@ export interface ApiError {
     message: string;
 }
 
-/*
-public abstract class ApiResponse
-{
-    /// <summary>
-    /// Respuesta base de la API
-    /// </summary>
-    [JsonPropertyOrder(-4)]
-    public bool Success { get; set; }
-    public string? Message { get; set; }
-    public DateTime Timestamp { get; set; }
-    public string? TraceId { get; set; }
-
-    protected ApiResponse()
-    {
-        Timestamp = DateTime.UtcNow;
-    }
-
-
-}
-*/
-
 export interface ApiResponse<T> {
     success: boolean;
     message?: string;
@@ -58,4 +37,12 @@ export interface Pagination {
     totalPages: number;
     hasPrevious: boolean;
     hasNext: boolean;
+}
+
+export interface BaseParams {
+    page?: number;
+    pageSize?: number;
+    sortBy?: string;
+    sortDirection?: string;
+    search?: string;
 }
